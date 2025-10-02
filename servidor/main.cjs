@@ -8,7 +8,7 @@ app.use(express.json());
 
 
 // Criar conexão
-const connection = mysql.createConnection({
+const db = mysql.createConnection({
   host: '127.0.0.1',
   port: 3306,
   user: 'root',
@@ -17,7 +17,7 @@ const connection = mysql.createConnection({
 });
 
 // Testar conexão
-connection.connect(err => {
+db.connect(err => {
   if (err) {
     console.error('Erro ao conectar:', err);
     return;
@@ -28,7 +28,7 @@ connection.connect(err => {
 
 // Rota: listar usuários
 app.get("/api/usuarios", (req, res) => {
-  connection.query("SELECT * FROM login", (err, results) => {
+  db.query("SELECT * FROM login", (err, results) => {
     if (err) {
       res.status(500).json({ erro: "Erro ao buscar usuários" });
       return;
@@ -37,40 +37,32 @@ app.get("/api/usuarios", (req, res) => {
   });
 });
 
-// Rota: adicionar usuário
-app.post("/api/usuarios", (req, res) => {
-  const { nomeLogin, emailLogin, senhaLogin } = req.body;
-  connection.query(
-    "INSERT INTO login (nomeLogin, emailLogin, senhaLogin) VALUES (?, ?, ?)",
-    [nomeLogin, emailLogin, senhaLogin],
-    (err, result) => {
-      if (err) {
-        res.status(500).json({ erro: "Erro ao cadastrar usuário" });
-        return;
-      }
-      res.json({ id: result.insertId, nomeLogin, emailLogin });
+app.post("/api/cadastro-usuario", (req, res) => {
+  const { nome, email, senha } = req.body;
+
+  console.log("Dados recebidos no backend:", { nome, email, senha });
+
+  const sql = "INSERT INTO login (nomeLogin, emailLogin, senhaLogin) VALUES (?, ?, ?)";
+  db.query(sql, [nome, email, senha], (err, result) => {
+    if (err) {
+      console.error("Erro SQL:", err);
+      res.status(500).json({ erro: "Erro ao cadastrar usuário", detalhe: err.sqlMessage });
+      return;
     }
-  );
+    res.json({ message: "Usuário cadastrado com sucesso!", id: result.insertId });
+  });
 });
 
 // Rota: login
 app.post("/api/login", (req, res) => {
-  const { emailLogin, senhaLogin } = req.body;
-  connection.query(
-    "SELECT * FROM login WHERE emailLogin = ? AND senhaLogin = ?",
-    [emailLogin, senhaLogin],
-    (err, results) => {
-      if (err) {
-        res.status(500).json({ erro: "Erro ao realizar login" });
-        return;
-      }
-      if (results.length > 0) {
-        res.json({ sucesso: true, usuario: results[0] });
-      } else {
-        res.status(401).json({ sucesso: false, mensagem: "Credenciais inválidas" });
-      }
-    }
-  );
+  const { loginEmail, loginSenha } = req.body;
+  console.log("Dados recebidos no backend", {loginEmail,loginSenha})
+  const sql = "SELECT * FROM login WHERE emailLogin = ? AND senhaLogin = ?";
+  db.query(sql, [loginEmail, loginSenha], (err, result) => {
+    if (err) return res.status(500).json({ error: "Erro no login" });
+    if (result.length === 0) return res.status(401).json({ error: "E-mail ou senha incorretos" });
+    res.json(result[0]);
+  });
 });
 
 // Iniciar servidor

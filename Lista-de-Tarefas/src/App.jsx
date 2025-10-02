@@ -3,7 +3,7 @@
 // import viteLogo from '/vite.svg'
 import 'react'
 import './App.css'
-import Login from './assets/Pages/Login'
+import Login from './assets/pages/Login'
 import Home from './assets/pages/Home'
 import { Route, Routes } from 'react-router-dom'
 // import './Login.css'
