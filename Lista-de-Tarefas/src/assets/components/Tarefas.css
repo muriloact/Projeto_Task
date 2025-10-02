@@ -1,0 +1,40 @@
+.flex{
+    display: flex;
+}
+.tarefas{
+    border-radius: 15px;
+    box-shadow: 2px 3px 10px #313d49;
+    width: 250px;
+    margin: 10px;
+    padding: 10px;
+}
+.infomracao{
+    border-radius: 15px;
+    box-shadow: 2px 3px 10px #313d49;
+    width: 250px;
+    margin: 10px;
+    padding: 10px;
+    display: block;
+    flex-wrap: wrap;
+}
+
+.flex .informacaoes{
+    flex-wrap: wrap;
+}
+.titulo-tarefas{
+    white-space: nowrap;          /* Impede a quebra de linha */
+    overflow: hidden;             /* Oculta o texto que excede o limite */
+    text-overflow: ellipsis;      /* Adiciona "..." ao final do texto truncado */
+}
+
+.data-tarefa-inicio,.data-tarefa-final, .status-tarefa, .conteudo-tarefa{
+    text-align: left;
+    margin: 3px;
+    max-width: 200px;
+}
+
+.conteudo-tarefa{
+    white-space: nowrap;          /* Impede a quebra de linha */
+    overflow: hidden;             /* Oculta o texto que excede o limite */
+    text-overflow: ellipsis;      /* Adiciona "..." ao final do texto truncado */
+}

@@ -1,0 +1,80 @@
+.container-principal {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;   /* centraliza horizontalmente */
+  align-items: center;       /* centraliza verticalmente */
+  background-color: #546a7b; /* seu fundo */
+  padding: 20px;
+}
+
+.flex {
+  display: flex !important;
+  flex-direction: column !important; /* força coluna */
+  align-items: center !important;     /* centraliza o conteúdo */
+  gap: 24px;
+  width: 100%;
+  max-width: 420px; /* largura máxima do bloco central */
+}
+
+.container-img-logo {
+  text-align: center;
+  height: 250px;
+}
+
+.logo-task {
+  width: 140px;
+}
+
+.container-login,
+.container-cadastro {
+  font-size: 20px;
+  border: 2px green solid;
+}
+
+.flex .container-login,
+.flex .container-cadastro {
+  flex-wrap: wrap;
+  padding: 10px 5%;
+  border-radius: 15px;
+}
+
+.container-login p,
+.container-cadastro p {
+  margin: 10px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.input-email,
+.input-senha,
+.input-nome {
+  background-color: rgb(81, 76, 76);
+  border-radius: 8px;
+  border-style: inherit;
+  width: 90%;
+  margin-top: 15px;
+  padding: 10px;
+}
+
+.btn-login {
+  margin-top: 15px;
+  border-radius: 7px;
+  border-style: groove;
+  background-color: darkgoldenrod;
+  padding: 8px;
+  font-size: 15px;
+  width: 50%;
+}
+
+.container-login input .container-login input {
+  margin: 20px;
+}
+
+.container-cadastro {
+  height: 55vh;
+}
+
+.container-login {
+  height: 40vh;
+
+}

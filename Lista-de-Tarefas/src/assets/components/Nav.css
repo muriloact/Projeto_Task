@@ -1,0 +1,67 @@
+.container-navbar {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid;
+}
+
+.flex {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* logo | links | logout */
+}
+
+.navbar ul {
+  display: flex;
+  /* coloca os li em linha */
+  flex-direction: row;
+  justify-content: center;
+  /* centraliza horizontalmente */
+  align-items: center;
+  /* alinha verticalmente */
+  gap: 10px;
+  /* espaço entre os links */
+
+  margin: 0;
+  background: rgb(174, 204, 228);
+  padding: 0;
+  /* background: transparent;   tira aquele fundo preto */
+}
+
+.navbar li {
+  display: inline;
+  /* cada item fica em linha */
+}
+
+.navbar a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: black;
+  border-radius: 5px;
+}
+
+.navbar a:hover {
+  color: white;
+}
+
+.btn-logalt {
+  padding: 0;
+  background: none;
+}
+
+.btn-logalt img {
+  padding-right: 5px ;
+  width: 14px;
+  object-fit: cover;
+}
+
+.container-logo {
+  display: flex;
+}
+
+.logo-app {
+  width: 40px;
+}

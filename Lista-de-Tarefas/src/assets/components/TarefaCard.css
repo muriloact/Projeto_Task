@@ -1,0 +1,55 @@
+.btn-editar-tarefa{
+    margin-top: 15px;
+    width: 80px;
+    padding: 5px;
+}
+.infomracao input, .informacao textarea{
+    gap: 50px;
+}
+input, textarea, select{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    border:none;
+    gap: 10px;
+    padding: 5px;
+    margin: 5px;
+    width: 160px;
+}
+textarea{
+    min-width: 160px;
+    max-width: 160px;
+}
+.btn-salvar, .btn-cancelar{
+    font-size: 15px;
+    padding: 4px;
+    margin: 0 10px;
+}
+.infomracao-naoiniciado{
+    border-radius: 15px;
+    box-shadow: 2px 3px 10px #313d49;
+    width: 250px;
+    margin: 10px;
+    padding: 10px;
+    display: block;
+    flex-wrap: wrap;
+}
+.infomracao-concluido{
+    border-radius: 15px;
+    box-shadow: 2px 3px 10px #313d49;
+    width: 250px;
+    margin: 10px;
+    padding: 10px;
+    display: block;
+    flex-wrap: wrap;
+    background-color: rgb(115, 197, 115);
+}
+.infomracao-pendente{
+    border-radius: 15px;
+    box-shadow: 2px 3px 10px #313d49;
+    width: 250px;
+    margin: 10px;
+    padding: 10px;
+    display: block;
+    flex-wrap: wrap;
+    background-color: rgb(242, 106, 106);
+}
